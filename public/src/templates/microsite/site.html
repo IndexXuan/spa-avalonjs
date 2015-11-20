@@ -1,0 +1,35 @@
+<div ms-controller="site" class="site">
+
+    <div class="ui-mask"  ms-visible="gMaskShow"></div>
+
+    <div class="ui-dialog" ms-visible="gAlertShow">
+        <div class="ui-dialog-title">
+            <h3>系统提示</h3>
+        </div>
+        <div class="ui-dialog-content">
+            <div title="提示">
+                <p>{{appMessage}}</p>
+            </div>
+        </div>
+        <div class="ui-dialog-btns">
+            <a class="ui-btn ui-btn-1 g-Alert-iKnow-btn" ms-click="iKnowClick()">我知道了</a>
+        </div>
+    </div>
+
+    <div class="left-fixed">
+        <div class="left navigator-home"><a href="#!/">首页</a></div>
+        <div id="nav" class="ui-navigator"> 
+            <ul class="ui-navigator-list" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+                <li ms-class="ui-state-active: item._id === categoryId"  ms-repeat-item="categoriesNames" data-repeat-rendered="renderNavigator">
+                    <a ms-attr-href="'#!/' + item._id">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="navBarMask" ms-visible="navBarMaskShow"></div>
+
+    <div ms-view=""></div>
+    
+</div>
+

@@ -1,0 +1,146 @@
+/* global reboot start */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* for root(html) rem, with different dpr attribute */
+
+@media (min--moz-device-pixel-ratio: 1.5),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi),
+(min-resolution: 1.5dppx) {
+    html[ios="true"] {
+        font-size: 200px;
+    }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5),
+(-webkit-min-device-pixel-ratio: 2.5),
+(min-device-pixel-ratio: 2.5),
+(min-resolution: 240dpi),
+(min-resolution: 2.5dppx) {
+    html[ios="true"] {
+        font-size: 300px;
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    page-break-inside: avoid;
+}
+
+
+/* a tag glabal set */
+
+a,
+a:active,
+a:visited,
+a:focus,
+a:hover {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+/* remove touch outline for elements in some device */
+input,
+textarea,
+button,
+select div,
+p,
+a {
+    outline: 0 none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+[ms-controller],
+.ms-controller,
+[ms-important],
+.ms-important {
+    visibility: hidden;
+}
+
+html,
+body {
+    width: 100%;
+    /* for global rem */
+    font-size: 100px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 100%;
+    background-color: $g_bgColor;
+}
+
+html.native-scrolling {
+    /* 系统原生滚动效果 */
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; // 字体优化 
+    text-align: center;
+    background-color: $g_bgColor;
+    color: $g_font_color;
+    font-size: .14rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+// 1. 为不继承的元素设定继承父级字号
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+big,
+input,
+textarea,
+button,
+select {
+    font-size: inherit;
+}
+
+.icon {
+    width: .16rem;
+    height: .16rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: .05rem;
+}
+/* global reboot end */
+

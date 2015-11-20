@@ -1,0 +1,11 @@
+<div ms-controller="header" class="yo-header" id="header" ms-if="headerShow">
+    <h2 class="title">{{title}}</h2>
+
+    <span class="regret yo-ico" ms-if="backBtnShow" ms-click="back()">&#xf07d;</span>
+    <a class="regret yo-ico" href="#!/" ms-if="leftBackIndexShow">&#xf07d;</a>
+
+    <a class="affirm" href="#!/" ms-if="backHomeBtnShow">首页</a>
+    <a class="affirm" ms-if="editShow" ms-click="edit">编辑</a>
+    <a class="affirm" ms-if="editDoneShow" ms-click="editDone">完成</a>
+</div>
+

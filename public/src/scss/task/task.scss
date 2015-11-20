@@ -1,0 +1,79 @@
+/*******************************************************
+> File Name: task.scss 
+> Author: IndexXuan
+> Mail: indexxuan@gmail.com
+> Created Time: 2015年07月30日 星期四16时41分34秒
+ ******************************************************/
+
+@import "../base/base";
+
+.task {
+    min-height: $min-viewport-height; 
+} 
+
+/* koudai jinbi start */
+.koudai-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #DB4444;
+    min-height: 8rem;
+}
+.item1 {
+    margin-top: 50%;
+    height: 1.5rem;
+    position: relative;
+    padding: .3rem;
+    text-align: center;
+    -webkit-transition: top 1.2s linear;
+    transition: top 1.2s linear;
+}
+.item1 .kodai {
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    left: 50%;
+    margin-left: -.72rem;
+}
+.item1 .kodai .full {
+    display: block;
+}
+.item1 .kodai .empty {
+    display: none;
+}
+.item1 .clipped-box {
+    display: none;
+    position: absolute;
+    bottom: .4rem;
+    left: .8rem;
+    height: 5.4rem;
+    width: 9.8rem;
+}
+.item1 .clipped-box img {
+    position: absolute;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: -webkit-transform 1.4s ease-in, background 0.3s ease-in;
+    transition: transform 1.4s ease-in;
+}
+/* koudai jinbi end */
+
+// taskList
+@import "taskList";
+
+// detail
+@import "../microsite/article";
+
+// mall
+@import "mall";
+
+// rank
+@import "rank";
+
+// me 
+@import "me";
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title ms-text="title"></title>
+    <link rel="stylesheet" href="../assets/styles/microsite/article.css?v=1.1.1.1" />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    input,
+    textarea,
+    button,
+    select,
+    div,
+    img,
+    a {
+        outline: 0 none; /* mark! key! remove outline */
+        -webkit-tap-highlight-color: transparent;
+        /* remove touch outline */
+    }
+
+    html {
+        font-size: 100px;
+    }
+    
+    body {
+        font-size: .14rem;
+    }
+    
+    [ms-controller] {
+        visibility: hidden;
+    }
+    
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .loading-with-dot {
+    display: inline-block;
+    width: 10px; 
+    min-height: 2px;
+    padding-right: 2px;
+    border-left: 2px solid currentColor; 
+    border-right: 2px solid currentColor;   
+    background-color: currentColor; 
+    background-clip: content-box;
+    box-sizing: border-box;
+    -webkit-animation: dot 4s infinite step-start both;
+    animation: dot 4s infinite step-start both;
+    *zoom: expression(this.innerHTML = '...'); /* IE7 */
+
+    &:before { content: '...'; } /* IE8 */
+    &::before { content: ''; }
+    }
+
+    :root .loading-with-dot { margin-left: 2px; padding-left: 2px; } /* IE9+ */
+
+    @-webkit-keyframes dot {
+        25% { border-color: transparent; background-color: transparent; }          /* zero point */
+        50% { border-right-color: transparent; background-color: transparent; }    /* one point */
+        75% { border-right-color: transparent; }                                   /* two points */
+    }
+
+    @keyframes dot {
+        25% { border-color: transparent; background-color: transparent; }          /* zero point */
+        50% { border-right-color: transparent; background-color: transparent; }    /* one point */
+        75% { border-right-color: transparent; }                                   /* two points */
+    }
+
+    .loading-text {
+        position: fixed;
+        margin: auto;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: .22rem;
+        text-align: center;
+    }
+    /* rewrite area, take care */
+
+    .content a {
+        color: #999999;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .detail .count {
+        vertical-align: middle;
+    }
+
+    .icon {
+        background-size: 100%;
+        position: relative;
+        top: 5px;
+        margin-right: 3px;
+    }
+    
+    .icon-like {
+        position: relative;
+        top: 2px!important;
+    }
+    /* rewrite area, take care */
+    </style>
+</head>
+</head>
+
+<body>
+
+    <div class="loading-text">家校云努力奔跑中<span class="loading-with-dot"></span></div>
+
+    <div ms-controller="article" class="detail">
+
+        <h2 class="title">{{title}}</h2>
+
+        <div class="count visit-count"><span>阅读</span>{{visitCount}}</div>
+        <div class="count share-count"><span>分享</span>{{shareCount}}</div>
+        <div class="count like-count"><span>喜欢</span>{{likeCount}}</div>
+        <div class="count time fr">{{created | date()}}</div>
+
+        <div class="cover-img">
+            <img ms-attr-src="image" />
+        </div>
+
+        <div class="content">{{content | html}}</div>
+
+
+        <div class="task-helper-btn" ms-click="showShareMask">分享到朋友圈</div>
+        <div class="shareMask" ms-click="hideShareMask">
+            <img ms-attr-src="resourcePrefix + '/shareMask-top.png'" />
+            <p class="task-shareMask-tip-text hide">分享领积分</p>
+            <img class="wxShareIcon" ms-attr-src="resourcePrefix + '/shareMask-wxShare-icon.png'" />
+            <img ms-attr-src="resourcePrefix + '/shareMask-adText.png'" />
+            <div class="iKnow" ms-click="hideShareMask">朕知道了</div>
+            <img class="shareMaskBottom" ms-attr-src="resourcePrefix + '/shareMask-bottom.png'" />
+
+        </div>
+
+        <ul class="pageinfo list">
+            <li class="visit" ms-click="showShareMask">阅读 {{visitCount}}</li>
+            <li class="share" ms-click="showShareMask" ms-if="isShared != true">分享 {{shareCount}}</li>
+            <li class="share" ms-click="showShareMask" ms-if="isShared == true">分享 {{shareCount}} (+1)</li>
+            <div class="like" ms-click="like" ms-if="!hasLiked">赞<i class="icon icon-like" ms-class-1="hasLiked: hasLiked == true"></i><span class="like-num" ms-class-1="like-num-update: hasLiked == true">{{likeCount}}</span></div>
+            <div class="like" ms-if="hasLiked == true">赞<i class="icon icon-like hasLiked"></i><span class="like-num" ms-class-1="like-num-update: hasLiked == true">{{likeCount}}</span></div>
+            <div class="report" ms-click="report">举报</div>
+        </ul>
+
+    </div>
+</body>
+<script src="../assets/scripts/lib/avalon/1.45/avalon.js"></script>
+<script>
+avalon.config({
+    debug: false 
+});
+
+require.config({
+    baseUrl: "./js"
+});
+
+require(['./staticArticle.js?v=1.1.1.1'], function(page) {
+    page && page.init && page.init();
+});
+</script>
+
+</html>

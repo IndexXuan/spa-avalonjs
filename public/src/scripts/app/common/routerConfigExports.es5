@@ -1,0 +1,23 @@
+// exports 
+    return {
+        init: function() { // init router and bootstrap the app
+
+            // avalon take charge of everything and start to init the app
+            avalon.log("init to bootstrap the app!");
+            var initTime = Date.now();
+            avalon.initTime = initTime;
+
+            avalon.history.start({
+                // basepath: "/mmRouter",
+                fireAnchor: false
+                //,routeElementJudger: function(ele, href) {
+                //    avalon.log(arguments);
+                //    //return href;
+                //}
+            });
+
+            //go!!!!!!!!!
+            avalon.scan();
+
+        }
+    }; // end of exports

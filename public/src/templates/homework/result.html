@@ -1,0 +1,32 @@
+<div class="result" ms-controller="result">
+
+    <div class="silk-container result-silk-bg">作业小结</div>
+
+    <ul class="yo-list yo-list-group">
+        <li class="item">
+            <i class="icon icon-right"></i>
+            <span class="area">正确题数:</span>
+            <div class="area">{{rightCount}}</div>
+        </li>
+        <li class="item">
+            <i class="icon icon-wrong"></i>
+            <span class="area">错误题数:</span>
+            <div class="area">{{wrongCount}}</div>
+        </li>
+        <li class="item" ms-if="totalAward != ''">
+            <i class="icon icon-score"></i>
+            <span class="area">本次奖励:</span>
+            <div class="area">{{totalAward}}</div>
+        </li>
+        <li class="item" ms-if="totalScore != ''">
+            <i class="icon icon-totalScore"></i>
+            <span class="area">积分总数:</span>
+            <div class="area">{{totalScore}}</div>
+        </li>
+    </ul>
+
+    <a href="#!/" class="go-index yo-btn yo-btn-light yo-btn-l" >继续做题</a>
+    <a href="./task.html" class="go-shop yo-btn yo-btn-l" >做任务拿积分</a>
+
+</div>
+

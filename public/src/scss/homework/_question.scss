@@ -1,0 +1,368 @@
+$answer_panel_height: 1.1rem;
+$next_radius: $answer_panel_height / 2 + .1rem;
+
+// question start //
+
+.yo-list {
+    padding-left: .1rem;
+    padding-right: .1rem;
+}
+
+.illy-img-list {
+    text-align: left;
+    position: relative;
+    top: -.08rem;
+    /* mark, not good */
+    margin-right: -3.5%;
+
+    @include ipad-screen(landscape) { 
+        label.item {
+            width: 21.5%!important;
+        }
+    }
+
+    label.item {
+        width: 46.5%;
+        display: inline-block;
+        padding: .05rem;
+        margin-right: 3.5%;
+        text-align: center;
+        border-radius: 3px;
+
+        div.flex {
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            margin-bottom: .1rem;
+            width: 100%;
+            height: auto;
+            min-height: 1rem; // add in 20151021 for layout
+        }
+        .yo-checked {
+            margin-bottom: .05rem;
+        }
+    }
+}
+
+
+/* rewrite thumb, remove it */
+
+.yo-range > input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.0002rem;
+    height: 0.2rem;
+    position: relative;
+    border: 0;
+    border-radius: 50%;
+    -webkit-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+}
+
+.question {
+    -webkit-user-select: none;
+    user-select: none;
+    text-align: left;
+    background-color: whiteSmoke;
+    .yo-list .item {
+        /* make it bigger, max-height was not needed */
+        min-height: .6rem;
+        margin-bottom: .05rem;
+        border-radius: .03rem;
+        &.question-item-active {
+            /* active state ui */
+            background-color: $main-blue;
+            color: #fff;
+            //.yo-checked-c > input:checked + .type::after {
+            .yo-checked-c > input + .type::after {
+                color: $main-blue;
+            }
+            // .yo-checked-c > input:checked + .type {
+            .yo-checked-c > input + .type {
+                background-color: #fff;
+            }
+        }
+        .mark {
+            /* for long text */
+            word-break: break-all;
+        }
+    }
+    .fill-in {
+        /* fill-in Type question's border width */
+        label {
+            display: block;
+            padding: .01rem;
+        }
+        .fill-in-textarea {
+            padding: .1rem;
+            border-radius: .03rem;
+            background-color: #fff;
+        }
+        .answered-text {
+            padding-left: .1rem;
+            padding-top: .16rem;
+            padding-bottom: .16rem;
+        }
+    }
+    .progress-wrapper {
+        height: .3rem;
+        line-height: .3rem;
+        padding-left: .1rem;
+        padding-right: .1rem;
+        .progress-outer {
+            height: $progress-height;
+            background-color: $progress-bgcolor;
+            width: 87%;
+            display: inline-block;
+            vertical-align: top; // key!
+            margin-top: (0.3 - $progress-height) / 2; // for vertical center
+            overflow: hidden;
+            .progress-inner {
+                height: $progress-height;
+                background-color: $progress-color;
+            }
+        }
+        .progress-text {
+            float: right;
+        }
+    }
+    /* 去除分割线，恶心的第二条线不显示bug */
+    .yo-list > .item {
+        background-image: none;
+    }
+    .yo-list > .item:last-child {
+        background-image: none;
+    }
+    .question-text {
+        padding: .02rem .01rem;
+        font-weight: bold;
+        font-size: .18rem;
+        margin-left: .1rem;
+        position: relative;
+        word-break: break-all; /* for English */
+        top: -.08rem;
+        /* mark, not good */
+    }
+    .fill-in {
+        .yo-input {
+            width: 100%;
+            /* overwrite to normal */
+            min-height: 1.5rem;
+        }
+    }
+    .wrong-fill-in {
+        /* 错误的文字填空题 */
+        color: $main-red;
+    }
+    .yo-list {
+        .item.wrong-answer {
+            /* 错误的选择题 */
+            border: 2px solid $main-red;
+            border-radius: .05rem;
+
+             /* active state ui */
+            background-color: #fff;
+            color: $main-blue;
+            //.yo-checked-c > input:checked + .type::after {
+            .yo-checked-c > input + .type::after {
+                color: $main-blue;
+            }
+            // .yo-checked-c > input:checked + .type {
+            .yo-checked-c > input + .type {
+                background-color: #fff;
+            }
+        }
+    }
+    .mask {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /*background: #322F2F;*/
+        background: transparent;
+        opacity: .7;
+    }
+    .isRecording {
+        display: none;
+        position: fixed;
+        top: 42%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: .9rem;
+        height: .9rem;
+        background-image: url(#{$img-dir}/recording.gif);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: .10rem;
+    }
+    .isRecording.timeout {
+        opacity: .2;
+    }
+    .timeout-mask {
+        /*display: inline-block;*/
+        display: none;
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: .9rem;
+        height: .9rem;
+        line-height: .9rem;
+        font-size: .6rem;
+        text-align: center;
+        color: #444040;
+    }
+    .record-btn {
+        display: inline-block;
+        position: fixed;
+        top: 63%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: 1.6rem;
+        height: .41rem;
+        line-height: .39rem;
+        background-color: #fff;
+        text-align: center;
+        font-size: .14rem;
+        color: $main-green;
+        border-radius: .05rem;
+        border: 1px solid $main-green;
+    }
+    .record-btn.active {
+        background-color: $main-green;
+        color: #fff;
+        font-weight: bold;
+    }
+    .playRecord {
+        // image of record to play
+        top: 54%;
+        font-size: .14rem;
+        color: #7c7474;
+        background-image: url(#{$img-dir}/playing.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: .06rem -.08rem;
+        padding-right: .25rem;
+        line-height: .4rem;
+        background-color: transparent;
+        border: none;
+        .record-total-time {
+            /* 录音时长 */
+            position: relative;
+            left: -.34rem;
+        }
+        .second-symbol {
+            position: relative;
+            left: -.34rem;
+        }
+    }
+    .playRecord.playing {
+        /* playing-state, gif */
+        background-image: url(#{$img-dir}/playing.gif);
+    }
+    /* record too short tips */
+    .record-tips {
+        display: none;
+        /* inline-block */
+        position: fixed;
+        top: 54%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: 1.6rem;
+        height: .41rem;
+        line-height: .37rem;
+        background: #eee;
+        text-align: center;
+        font-size: .12rem;
+        color: #666;
+        border-radius: .05rem;
+        border: 2px solid $main-red;
+    }
+    .answer-panel {
+        display: none;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: $answer_panel_height;
+        background-color: $main-color;
+        &.wrong {
+            background-color: $main-red;
+        }
+        .answer {
+            word-break: break-all;
+            padding: .1rem;
+            line-height: 1.7;
+            font-size: .14rem;
+            text-align: left;
+            .right,
+            .save {
+                font-weight: bold;
+                font-size: .18rem;
+                color: #f2eded;
+                display: inline-block;
+                vertical-align: top;
+            }
+            /* 录音已保存 */
+            .save {
+                width: 72%;
+            }
+            p.analysis-text {
+                width: 76%;
+                margin-top: .03rem;
+                color: #f2eded;
+                text-align: justify;
+                line-height: 1.3;
+            }
+        }
+    }
+    .tap-btn {
+        width: $next_radius;
+        height: $next_radius;
+        border-radius: 50%;
+        background-color: $main-blue;
+        position: absolute;
+        right: .1rem;
+        bottom: $answer_panel_height - .35rem;
+        text-align: center;
+        .icon {
+            display: inline-block;
+            width: $next_radius;
+            height: $next_radius;
+            line-height: $next_radius;
+            color: white;
+            font-weight: bold;
+            font-size: .42rem;
+        }
+        .icon-next {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    }
+    .bottom-checkAnswer-btn {
+        width: 94%;
+        height: .44rem;
+        line-height: .44rem;
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        bottom: .1rem;
+        background-color: $main-green;
+        font-size: .16rem;
+        color: #fff;
+    }
+}
+
+// question end //
+

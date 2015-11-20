@@ -1,0 +1,14 @@
+.history {
+    .done-flag {
+        font-size: .12rem;
+        color: $main-green;
+        position: absolute;
+        right: .01rem;
+        top: .1rem;
+        -webkit-transform: rotate(33deg);
+        transform: rotate(33deg);
+        padding: .07rem;
+        border: 1px solid $main-red;
+        border-radius: 50%;
+    }
+}

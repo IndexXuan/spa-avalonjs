@@ -1,0 +1,43 @@
+<!-- list start -->
+<div class="list mistake-list" ms-controller="mistakeList">
+
+    <!-- slider and anchor to jump to other place -->
+    <div id="slider">
+        <div ms-repeat-slider="sliders" data-repeat-rendered="renderSlider"> 
+            <a ms-attr-href="slider.href"><img ms-attr-src="slider.image + '?imageView2/1/w/640/h/320/interlace/1'" /></a>
+            <p>{{slider.title}}</p>
+        </div>
+    </div>
+    <!-- slider and anchor to jump to other place -->
+
+    <!-- item start -->
+    <div class="item-wrapper">
+
+        <div class="global-noContent-tip-dark" ms-if="noMistakeListContent">
+            {{noContentText}}
+        </div>
+
+        <!-- 作业列表 start -->
+        <div class="item area" ms-repeat-item="lists" ms-if="noMistakeListContent === false">
+            <div ms-click="goWrong(this)" ms-attr-data-homeworkid="item._id" class="list-card">
+                <img class="item-img area" ms-attr-src="illy_images_base + '/hw-list-icon-' + $index % 3 + '.png'" ms-attr-alt="item.title" />
+                <div class="hw-info area">
+                    <h2 class="item-title area">{{item.title}}</h2>
+                    <span class="time">作业完成时间: {{item.finishedTime| date("yyyy.MM.dd")}}</span>
+                    <span class="finish_count"><i class="icon-people"></i>错题数: {{item.wrongNumber}}</span>
+                </div>
+                <span class="todo"></span>
+            </div>
+        </div>
+        <!-- 作业列表 end -->
+
+    </div>
+    <!-- item end -->
+
+    <a href="javascript:void(0)" class="show-more-btn" ms-if="!noMistakeListContent && btnShowMore && isLoading === false && !noMoreData" ms-click="showMore()">加载更多</a>
+    <a href="javascript:void(0)" class="show-more-btn" ms-if="!noMistakeListContent && btnShowMore && isLoading === true">加载中...</a>
+    <a href="javascript:void(0)" class="show-more-btn" ms-if="!noMistakeListContent && btnShowMore && isLoading === false && noMoreData" ms-click="showMore()">没有更多了</a>
+
+</div>
+<!-- list end -->
+

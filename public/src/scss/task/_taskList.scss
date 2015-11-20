@@ -1,0 +1,162 @@
+$taskList-left-width: 25%;
+$task-progress-height: .1rem;
+$task-progress-bgcolor: #fff;
+$task-progress-inner-bgColor: #EF7549;
+$task-progress-radius: .1rem;
+$taskList-img-height: .67rem;
+
+.top-area-common {
+    width: 30%;
+    height: 1rem;
+    background-size: 64%;
+    background-repeat: no-repeat;
+}
+
+.task-list {
+    width: 100%;
+    min-height: $min-viewport-height;
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-image: url(#{$img-dir}/taskList-bg.png);
+    color: $dark-grey;
+    padding-top: .15rem;
+    background-color: #945e27; /* for too much items */
+    padding-bottom: .44rem; /* for fixed footer */
+
+    .global-noContent-tip-dark {
+        margin-top: 0rem!important;
+        margin-bottom: .2rem!important;
+    }
+
+    .item-wrapper {
+        max-width: 3.8rem;
+        background: rgba(0, 69, 99, .5);
+        width: 92%;
+        margin: 0 auto;
+        margin-top: .7rem;
+        /* overwrite */
+        padding: .12rem .06rem;
+        position: relative;
+        border-radius: 3px;
+        .silk-common {
+            width: 100%;
+            height: $silk-height;
+            background-image: url(#{$img-dir}/silk-green.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -.6rem;
+            line-height: .32rem;
+        }
+        .top-score-area {
+            background-size: 100%;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-image: url(#{$img-dir}/rank-nb.png);
+            width: 37%;
+            max-width: 1.07rem;
+            /* must fixed value */
+            height: .44rem;
+            position: relative;
+            top: -.28rem;
+            margin-bottom: -.44rem;
+            .top-score-text {
+                color: #fff;
+                position: absolute;
+                top: .08rem;
+                left: .37rem;
+                width: .6rem;
+                text-align: center;
+            }
+        }
+    }
+    .list-card {
+        width: 100%;
+        margin-bottom: .10rem;
+        text-align: left;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        padding: .08rem;
+        border-radius: 10px;
+        background-color: #ffefb5;
+
+        .inner-box {
+            display: block;
+        }
+
+        .left-icon {
+            width: $taskList-left-width;
+            max-width: .67rem;
+            height: .67rem;
+            border-radius: 15px;
+            background-image: url(#{$img-dir}/taskList-item-icon.png);
+            border: 2px solid #bdd3ad;
+            background-size: 100%;
+            position: relative;
+            .scoreAward {
+                position: absolute;
+                left: 50%;
+                bottom: .01rem;
+                margin-left: -.3rem;
+                text-align: center;
+                width: .6rem;
+                font-size: .14rem;
+                color: #ED6E41;
+            }
+        }
+        .right-area {
+            width: 97% - $taskList-left-width;
+            .title {
+                width: 100%;
+                font-size: .14rem;
+                padding-left: .05rem;
+            }
+            .right-bottom-area {
+                width: 100%;
+                height: .5rem;
+                .progress-area {
+                    width: 62%;
+                    height: .41rem;
+                    .progress-text {
+                        font-size: .14rem;
+                        color: orange;
+                        padding-left: .05rem;
+                        padding-top: .05rem;
+                        letter-spacing: .01rem;
+                    }
+                    .progress-wrapper {
+                        height: .3rem;
+                        line-height: .3rem;
+                        padding-left: .05rem;
+                        padding-right: .05rem;
+                        .progress-outer {
+                            height: $task-progress-height;
+                            background-color: $task-progress-bgcolor;
+                            width: 99%;
+                            display: inline-block;
+                            vertical-align: top; // key!
+                            margin-top: (0.2 - $task-progress-height) / 2; // for vertical center
+                            border-radius: $task-progress-radius;
+                            .progress-inner {
+                                height: $task-progress-height;
+                                background-color: $task-progress-inner-bgColor;
+                                border-radius: $task-progress-radius;
+                                width: 20%; /* default width */
+                            }
+                        }
+                    } // end of progress-wrapper
+                }
+                .go {
+                    width: 35%;
+                    height: .41rem;
+                    background-image: url(#{$img-dir}/taskList-btn.png);
+                    background-size: 99%;
+                    background-position: right bottom;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}

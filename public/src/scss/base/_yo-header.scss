@@ -1,0 +1,101 @@
+/* yo-header start */
+
+.yo-header {
+    position: relative;
+    height: 0.44rem;
+    line-height: 0.44rem;
+    border-bottom: 1px solid #1ba9ba;
+    background-color: #1ba9ba;
+    color: #fff;
+    font-size: 0.18rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.yo-header > .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 0.6rem;
+}
+
+.yo-header > .regret,
+.yo-header > .affirm {
+    position: absolute;
+    top: 0;
+    width: 0.6rem;
+    cursor: pointer;
+    font-size: 0.14rem;
+}
+
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+    opacity: .5;
+}
+
+.yo-header > .regret.yo-ico,
+.yo-header > .regret > .yo-ico,
+.yo-header > .affirm.yo-ico,
+.yo-header > .affirm > .yo-ico {
+    color: #fff;
+    /* overwrite */
+    font-size: 0.2rem;
+}
+
+.yo-header > .regret {
+    left: 0;
+    padding-left: 0.15rem;
+    text-align: left;
+}
+
+.yo-header > .affirm {
+    right: 0;
+    padding-right: 0.15rem;
+    text-align: right;
+}
+
+.yo-header-normal {
+    border-color: #ddd;
+    background-color: #eee;
+    color: #212121;
+}
+
+.yo-header-normal > .regret.yo-ico,
+.yo-header-normal > .regret > .yo-ico,
+.yo-header-normal > .affirm.yo-ico,
+.yo-header-normal > .affirm > .yo-ico {
+    color: #212121;
+}
+
+
+/* yo-header end */
+
+/* yo-header patch start, fix for header */
+
+#header {
+    background-color: #323436;
+    border-bottom: 0 none; // rewrite
+    z-index: $zIndex5;
+
+    .affirm {
+        color: #fff;
+    }
+    .regret {
+        padding-left: .10rem; // rewrite it 
+    }
+    .title {
+        font-weight: bold;
+        font-size: .2rem;
+    }
+}
+
+.yo-header > .regret.yo-ico,
+.yo-header > .regret > .yo-ico,
+.yo-header > .affirm.yo-ico,
+.yo-header > .affirm > .yo-ico {
+    color: #fff;
+}
+
+/* yo-header patch end */

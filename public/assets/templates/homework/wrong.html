@@ -1,0 +1,78 @@
+<!-- 具体一个题目 -->
+<div class="question" ms-controller="wrong">
+
+    <!-- progress of question -->
+    <div class="progress-wrapper">
+        <div class="progress-outer">
+            <div class="progress-inner" ms-css-width="( localAnswers.length * 100 ) / total + '%' "></div> 
+        </div>
+        <span class="progress-text">{{currentId}} / {{total}}</span>
+    </div>
+    <!-- progress of question -->
+
+    <!-- 公用题干 -->
+    <p class="question-text">
+        {{exercise.question | html}}<br/>  
+        <span class="description" ms-if=" exercise.eType === 0 && !!exercise.description ">题目说明:{{exercise.description}}</span>
+    </p>
+    <!-- 公用题干 -->
+
+    <!-- 题目主干渲染区, 依据不同类型 start -->
+
+    <!-- 文字选择题-->
+    <div class="yo-list yo-list-group" ms-if="exercise.eType === 0">
+        <label class="item item-active" ms-repeat-item="exercise.choices" ms-class-1="wrong-answer: item.title == exercise.wrongAnswer">
+            <div class="mark flex">
+                {{item.title}}. {{item.content}} 
+            </div>
+            <div class="yo-checked yo-checked-c">
+                <input type="radio" name="xiaoxuan" ms-attr-value="{{item.title}}" ms-duplex-string=" userAnswer "  ms-attr-disabled="(localAnswers.length >= currentId) && (userAnswer !== item.title)" />
+                <span class="type"></span>
+            </div>
+        </label>
+    </div>
+    <!-- 文字选择题-->
+
+    <!-- 图片选择题-->
+    <div class="yo-list yo-list-group illy-img-list" ms-if="exercise.eType === 1" ms-class-1="wrong-answer: item.title == exercise.wrongAnswer">
+        <label class="item item-active" ms-class-1="wrong-answer: item.title == exercise.wrongAnswer" ms-repeat-item="exercise.choices" >
+            <div class="mark flex" ms-if="exercise.eType === 1">
+                <img ms-attr-src="illy_resource_base + item.content + '?imageView2/1/w/150/h/150'" />
+            </div>
+            {{item.title}}
+            <div class="yo-checked yo-checked-c">
+                <input type="radio" name="xiaoxuan" ms-attr-value="{{item.title}}" ms-duplex-string=" userAnswer "  ms-attr-disabled="(localAnswers.length >= currentId) && (userAnswer !== item.title)" />
+                <span class="type"></span>
+            </div>
+        </label>
+    </div>
+    <!-- 图片选择题-->
+
+    <!-- 填空题 -->
+    <div class="fill-in wrong-fill-in" ms-if="exercise.eType === 2">
+        <label class="item item-input">
+            <p class="answered-text">你填写的答案为：{{localAnswers[currentId - 1]}}</p>
+        </label>
+    </div>
+    <!-- 填空题 -->
+
+    <!-- 题目主干渲染区, 依据不同类型 end -->
+
+    <!-- 答案和分析面板 -->
+    <!-- 显示与否的罗辑， 1.先看是不是做过了这题，再看是不是点击了检查按钮! 2. 本地保存的题目数量大于或者等于当前题就说明做过了当前题 -->
+    <div class="answer-panel wrong" ms-visible="right == false">
+        <div class="answer">
+            <span class="right" ms-if="!right">正确答案为：{{exercise.answer}}</span>
+            <p class="analysis-text" ms-if="exercise.analysis != ''">解析: {{exercise.analysis}}</p>
+        </div>
+        <div class="tap-btn btn-next" ms-click="next()" ms-if="hasNext">
+            <span class="icon yo-ico icon-next">&#xf079;</span>
+        </div>
+        <div class="tap-btn btn-submit" ms-click="submit()" ms-if="!hasNext">
+            <span class="icon yo-ico">&#xf078;</span>
+        </div>
+    </div>
+    <!-- 答案和分析面板 -->
+
+</div>
+

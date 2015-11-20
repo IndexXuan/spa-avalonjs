@@ -1,0 +1,60 @@
+// common vars start //
+
+// rewrite to project server in production
+$font-face-src: '../../../assets/fonts/yo/1.0.0';
+
+// remote images lib
+$img-dir: '../../../assets/images';
+
+// $illy-container-width: 5rem; // temp drop, ipad full to display 
+
+$loader-bgColor: #fff;
+
+$g_bgColor: #f1f1f1;
+
+$main-color: #64c400;
+
+$wx-bar-bgColor: #323436;
+
+$main-green: #64c400;
+$main-red: #e50b23;
+$main-blue: #00abfd;
+
+$light-grey: #999999;
+$dark-grey: #333438;
+
+// organized the z-index global, very important
+$zIndex1: 1;
+$zIndex2: 9;
+$zIndex3: 99;
+$zIndex4: 520;
+$zIndex5: 999;
+$zIndex6: 8888;
+$zIndex7: 99999;
+
+// global silk height
+$silk-height: .6rem;
+// fixed value for all device
+$silk-max-width: 2.94px; 
+
+$max-content-width: 4.5rem; // for big screen like ipad's content, you know not more wider more good
+$min-viewport-height: 7.36rem; // iphone6 plus's size
+$g_font_color: $dark-grey;
+
+// common vars end //
+
+// progress
+$progress-bgcolor: $main-blue;
+$progress-color: $main-green;
+$progress-height: .03rem;
+
+// common avatar size
+$avatar-size: .9rem;
+
+// for common use
+$created-time-color: $light-grey;
+$like-color: $light-grey;
+
+// for article content's color
+$article-content-text-color: #444242;
+

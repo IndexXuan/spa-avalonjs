@@ -1,0 +1,67 @@
+/* yo-btn start */
+.yo-btn {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 1.2em;
+    vertical-align: top;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e26704;
+    border-radius: 0.02rem;
+    -webkit-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+    background-color: #ff801a;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.yo-btn-disabled {
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+.yo-btn-disabled,
+.yo-btn-disabled:focus,
+.yo-btn-disabled:active {
+    border-color: #ccc;
+    background-color: #e0e0e0;
+    color: #bbb;
+}
+
+.yo-btn-s {
+    height: 0.28rem;
+    line-height: 0.28rem;
+    font-size: 0.12rem;
+}
+
+.yo-btn-m {
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.14rem;
+}
+
+.yo-btn-l {
+    height: 0.44rem;
+    line-height: 0.44rem;
+    font-size: 0.16rem;
+}
+
+.yo-btn-stacked {
+    display: block;
+    width: 100%;
+}
+
+.yo-btn-light {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #212121;
+}
+
+.yo-btn-info {
+    border-color: #0456e2;
+    background-color: #4a87ee;
+}
+
+/* yo-btn end */
+

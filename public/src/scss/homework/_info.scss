@@ -1,0 +1,81 @@
+/* homework-info start */
+.homework-info-silk {
+    background-image: url(#{$img-dir}/silk-green.png);
+    top: -.4rem;
+}
+
+.info {
+    text-align: center;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding-top: .4rem;
+
+    audio {
+        width: 2rem;
+        font-size: .16rem;
+    }
+    .keyPoint {
+        white-space: pre-wrap;
+    }
+    .keyPointRecord-area {
+        width: 100%;
+        background-color: #fff;
+        padding: .1rem;
+    }
+}
+
+.panel {
+    text-align: left;
+    display: inline-block;
+    width: 96%;
+    margin-top: .15rem;
+    padding-bottom: .3rem;
+    position: relative;
+
+    .yo-list {
+        padding-left: .05rem;
+        /* rewrite for info panel */
+        padding-right: .05rem;
+    }
+    .item {
+        align-items: baseline;
+    }
+    .mark {
+        width: 23%;
+    }
+    .flex {
+        width: 75%;
+    }
+    .playRecord {
+        // image of record to play
+        top: 54%;
+        font-size: .14rem;
+        color: $light-grey;
+        height: .6rem;
+        line-height: .59rem;
+        background-image: url(#{$img-dir}/playing.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        .record-total-time {
+            /* 录音时长 */
+            position: relative;
+            left: -.01rem;
+        }
+    }
+    .playRecord.playing {
+        background-image: url(#{$img-dir}/playing.gif);
+    }
+    .go-question {
+        display: block;
+        width: 98%;
+        margin: 0 auto;
+        background: $main-color;
+        border-color: $main-color;
+        margin-top: .2rem;
+        border-radius: .05rem;
+        font-size: .2rem;
+    }
+}
+
+/* homework-info end */

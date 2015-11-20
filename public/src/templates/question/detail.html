@@ -1,0 +1,38 @@
+<div ms-controller="detail" class="detail">
+
+    <!-- 创建时间 -->
+    <div class="created-time">{{createdTime | date}}</div>
+
+    <!-- 问题描述 -->
+    <div class="questionText common-panel-bg" ms-if="!isShowingFullScreenImage">
+        {{questionText}} 
+    </div>
+
+    <!-- 问题图片 -->
+    <div ms-if="questionImage && !isShowingFullScreenImage" class="questionImage" ms-click="showFullScreenQuestionImage">
+        <img class="big-image" ms-attr-src="questionImage" ms-attr-alt="questionText" /> 
+        <span class="tip">看大图</span>
+    </div>
+
+    <!-- 全屏查看图片容器  -->
+    <div class="full-screen-img-wrapper yo-header" ms-if="isShowingFullScreenImage" ms-click="hideFullScreenQuestionImage">
+        <h2 class="title">图片详情</h2>
+
+        <span class="regret" ms-click="hideFullScreenQuestionImage">回到提问</span>
+        <img ms-attr-src="questionImage" ms-attr-alt="questionText" />
+    </div>
+
+    <!-- 教师解答 -->
+    <div ms-if="answer && !isShowingFullScreenImage" class="answer-panel common-panel-bg">
+        <!--<i class="icon icon-teacher"></i>-->
+        {{teacher.displayName}}老师的解答:<br/>
+        <p class="text">{{answer | html}}</p>
+    </div>
+
+    <!-- 稍安勿躁小提示语 -->
+    <div ms-if="!answer && !isShowingFullScreenImage" class="noAnswer-tips">
+        很快就会收到老师的解答，请耐心等待~
+    </div>
+
+</div>
+

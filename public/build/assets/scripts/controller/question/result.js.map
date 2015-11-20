@@ -1,0 +1,1 @@
+{"version":3,"file":"result.js","sources":["../../../../../assets/scripts/controller/question/result.js"],"names":["define","avalon","$id","current","controller","$ctrl","$onRendered","$onEnter","$onBeforeUnload","$vmodels"],"mappings":"AAAAA,UAAW,WAQMC,OAAOD,QAEhBE,IAAK,SACLC,QAAS,QAIb,OAAOF,QAAOG,WAAW,SAASC,OAE9BA,MAAMC,YAAc,aAIpBD,MAAME,SAAW,aAIjBF,MAAMG,gBAAkB,aAIxBH,MAAMI"}

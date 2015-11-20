@@ -1,0 +1,40 @@
+/* discription form start */
+
+.form {
+    min-height: $min-viewport-height;
+    background-color: #fff;
+}
+
+.localImg {
+}
+
+.description-input {
+    width: 94%;
+    min-height: 2rem;
+    padding: .05rem .1rem;
+    line-height: 1.7;
+    margin-top: .1rem;
+    margin-left: .1rem;
+    margin-right: .1rem;
+    margin-bottom: .1rem;
+    border-radius: 5px;
+
+    &:focus {
+        border: 1px solid $main-blue;
+    }
+}
+
+.submit-question-btn {
+    width: 2rem;
+    border-color: #4a87ee; // make border-color same with background-color
+
+    &:focus,
+    &:visited,
+    &:hover, 
+    &:active{
+        color: #fff;
+    }
+}
+
+/* discription form end */
+

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title></title>
+    <style type="text/css">
+    html {
+        height: 100%
+    }
+    
+    body {
+        font-size: 16px;
+        background: #eee;
+        height: 100%
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-decoration: none
+    }
+    
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder {
+        color: #aaa
+    }
+    
+    input::-ms-input-placeholder,
+    textarea::-ms-input-placeholder {
+        color: #aaa
+    }
+    
+    input,
+    textarea,
+    button,
+    select,
+    div,
+    img,
+    a {
+        outline: 0 none; /* mark! key! remove outline */
+        -webkit-tap-highlight-color: transparent;
+        /* remove touch outline */
+    }
+    
+    .content {
+        margin: 0 auto;
+        width: 320px;
+        height: 500px;
+        position: relative
+    }
+    
+    .login {
+        margin: 0 auto;
+        padding-top: 30px
+    }
+    
+    .q_login {
+        margin: 0 auto;
+        width: 290px;
+        overflow: hidden;
+        text-align: center;
+        margin-bottom: 40px
+    }
+    
+    .inputstyle {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        width: 273px;
+        height: 44px;
+        color: #000;
+        border: 0;
+        background: 0;
+        padding-left: 15px;
+        font-size: 16px;
+        -webkit-appearance: none
+    }
+    
+    
+    #web_login {
+        width: 290px;
+        margin: 0 auto
+    }
+    
+    #g_list {
+        background: #fff;
+        height: 89px;
+        border-radius: 4px
+    }
+    
+    #go,
+    #onekey {
+        width: 290px;
+        height: 44px;
+        line-height: 44px;
+        background: #64c400;
+        border: 0;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 15px;
+        display: block
+    }
+    
+    .tansparent {
+        background: 0
+    }
+    
+    #q_login_title {
+        height: 32px;
+        line-height: 22px;
+        margin-bottom: 20px;
+        position: relative
+    }
+    
+    #q_login_tips {
+        position: absolute;
+        left: 30px;
+        top: 0;
+        color: #246183
+    }
+    .logo {
+        background-image: url(./assets/images/logo.png); /* mark */
+        height: 175px;
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background-size: 100%;
+    }
+    .tips {
+        padding: 10px;
+        color: #999;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="content" class="content">
+        <div id="login" class="login">
+            <div id="logo" class="logo"></div>
+          
+            <div id="web_login">
+                <ul id="g_list">
+                    <li id="g_u">               
+                        <input id="u" class="inputstyle username" name="username" autocomplete="off" placeholder="请输入您的账号">
+                    </li>
+                    <li id="g_p">                      
+                        <input id="p" class="inputstyle password" maxlength="16" type="password" name="password" autocorrect="off" placeholder="请输入您的密码">
+                    </li>
+                </ul>
+                <div id="go" onclick="toApp()">登 录</div>
+
+
+                <div class="tips">
+                    如果没有相关账户，请联系学校索取~
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+function createXHR(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // Check if the XMLHttpRequest object has a "withCredentials" property.
+        // "withCredentials" only exists on XMLHTTPRequest2 objects.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        // Otherwise, check if XDomainRequest.
+        // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // Otherwise, CORS is not supported by the browser.
+        xhr = null;
+    }
+    return xhr;
+}
+
+var apiBaseUrl = 'http://api.hizuoye.com/api/v1/';
+var url = window.location.href;
+var re = /([?&])(openid|next)=([^?&]+)/g;
+var query = {},
+    matches;
+while (matches = re.exec(url)) {
+    query[matches[2]] = matches[3];
+}
+var openid = query.openid;
+var next = query.next; // to describee a state to render spa... maybe need a config map
+function toApp() {
+    var username = document.querySelector('.username').value;
+    var password = document.querySelector('.password').value;
+    var xhr = createXHR("POST", apiBaseUrl + "public/bind");
+    if (!xhr) {
+        alert('CORS not supported');
+    }
+    // Response handlers.
+    xhr.onload = function() {
+        var status = xhr.status;
+        if (status === 200) {
+            // location.href = next + '.html?token=' + xhr.responseText;
+            if (localStorage && localStorage.getItem) {
+                localStorage.setItem('illy-token', xhr.responseText);
+                if (next === void 0) {
+                    next = './task.html#!/me';
+                }
+                location.replace(next); // pure url
+            }
+        } else {
+            // alert("request state error not 200 ok" + xhr.response + "status is: " + status);
+            var error = JSON.parse(xhr.response);
+            alert(error + '!');
+        }
+    };
+    xhr.onerror = function() {
+        alert('Woops, there was an error making the request.');
+    };
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("username=" + username + "&password=" + password + "&openid=" + openid);
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+/* gmu dialog start */
+
+$dialog-bgColor: #e8e8e8; 
+$dialog-borderColor: #b5b5b5;
+$dialog-btn-color: #0079ff;
+$dialog-text-color: #3d4145;
+
+.ui-dialog {
+    z-index: $zIndex7;
+    overflow: hidden;
+    width: 85%;
+    max-width: 2.7rem;
+    height: auto;
+    border-radius: .07rem;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-tap-highlight-color: transparent;
+    background-color: #e8e8e8;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.ui-dialog .ui-dialog-title {
+    position: relative;
+}
+
+.ui-dialog-container {
+    position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+    height: .4rem;
+    line-height: .5rem;
+    font-size: .18rem;
+    text-align: center;
+    font-weight: 700;
+    color: $dialog-text-color;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: .05rem;
+    position: relative;
+}
+
+.ui-dialog .ui-dialog-content p {
+    font-size: .16rem;
+    padding: 0 .1rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.ui-dialog-btns {
+    table-layout: fixed;
+    display: table;
+    border-collapse: collapse;
+    margin: .05rem 0 0 0;
+    width: 100%;
+}
+
+.ui-dialog-btns .ui-btn {
+    padding: 0;
+    font-size: .16rem;
+    width: 100%;
+    display: table-cell;
+    float: none;
+    text-align: center;
+    height: .44rem;
+    line-height: .44rem;
+    color: $dialog-btn-color;
+    // mark!!!, px will not show border in high-dpr device
+    // border: .01rem solid $dialog-borderColor;
+    border: 1px solid $dialog-borderColor;
+    border-bottom: 0 none;
+    cursor: pointer;
+}
+
+.ui-dialog-btns .ui-btn:first-child {
+    border-left: 0 none;
+    font-weight: 600; /* for recomand */
+}
+
+.ui-dialog-btns .ui-btn:last-child {
+    border-right: 0 none;
+}
+
+/* gmu dialog end */
+

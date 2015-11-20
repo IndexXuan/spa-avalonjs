@@ -1,0 +1,36 @@
+/*******************************************************
+> File Name: base.scss 
+> Author: IndexXuan
+> Mail: indexxuan@gmail.com
+> Created Time: 2015年07月13日 星期一 18时38分20秒
+ ******************************************************/
+ 
+// normalize and animation
+@import "normalize";
+@import "animation-part";
+
+// core variables and mixins
+@import "variables";
+@import "mixins/mixin";
+
+// yo component, fonts
+@import "yo-font";
+
+// global reboot
+@import "reboot";
+
+// utils 
+@import "utils";
+
+// global mask
+@import "mask";
+
+// gmu component, dialog
+@import "gmu-dialog";
+
+// yo component, list
+@import "yo-list";
+
+// yo component, btn
+@import "yo-btn";
+

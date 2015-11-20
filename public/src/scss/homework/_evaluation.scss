@@ -1,0 +1,247 @@
+$view-bgColor: $g_bgColor;
+
+$evaluation-right-width: 62%;
+$evaluation-left-width: 27%;
+$timeline-line-size: .02rem;
+$timeline-h-line-size: .04rem;
+$timeline-blue: #43d1d5;
+$timeline-white: #fff;
+
+/* homework-evaluation start */
+.evaluation {
+    background-color: $view-bgColor;
+    min-height: $min-viewport-height;
+
+    .profile-wrapper {
+        position: relative;
+        color: #fff;
+        background-size: 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-color: $timeline-blue;
+        .inner-wrapper {
+            width: 100%;
+            height: 1.45rem;
+        }
+        .name {
+            text-align: center;
+            margin-top: -.1rem;
+        }
+    }
+    .avatar-wrapper {
+        width: 100%;
+        padding: .15rem .20rem;
+        text-align: center;
+        img {
+            display: inline-block;
+            width: $avatar-size;
+            max-height: $avatar-size;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid $timeline-white;
+        }
+    }
+    .navigator-bar {
+        font-size: .16rem;
+        margin-right: -.01rem;
+        overflow: hidden;
+
+        .go-homework,
+        .go-mistake {
+            width: 50%;
+            float: left;
+            height: .32rem;
+            color: #5c5454;
+            line-height: .24rem;
+            text-align: center;
+            border-right: 1px solid #dedede;
+            margin-top: .1rem;
+        }
+        
+        .icon {
+            position: relative;
+            top: -.01rem;
+        }
+        .icon-homework {
+            background-image: url(#{$img-dir}/evaluation-homework.png);
+        }
+        .icon-mistake {
+            background-image: url(#{$img-dir}/evaluation-mistake.png);
+            top: -.03rem; 
+        }
+    }
+    .h-line {
+        width: 100%;
+        height: $timeline-h-line-size;
+        background-color: $timeline-blue;
+        position: relative;
+        margin-bottom: .2rem;
+    }
+    .h-line:before {
+        position: absolute;
+        content: "\00a0";
+        width: 0px;
+        height: 0px;
+        border-width: .18rem .18rem 0 .18rem;
+        border-style: solid;
+        border-color: $timeline-blue transparent transparent transparent;
+        top: $timeline-h-line-size;
+        left: 50%;
+        margin-left: -.18rem;
+    }
+    .h-line:after {
+        position: absolute;
+        content: "\00a0";
+        width: 0px;
+        height: 0px;
+        border-width: .18rem .18rem 0 .18rem;
+        border-style: solid;
+        border-color: $view-bgColor transparent transparent transparent;
+        top: -.02rem;
+        left: 50%;
+        margin-left: -.18rem;
+    }
+    .timeline-wrapper {
+        padding-top: 0;
+        
+        .show-more-btn {
+            position: relative;
+            top: -.025rem;
+        }
+
+        .no-evaluation-text {
+            width: 80%;
+            border: $timeline-line-size solid $timeline-blue;
+            position: relative;
+            top: .3rem;
+            padding: .2rem .05rem;
+            border-radius: .05rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .h-inner-line {
+        width: 22.1%; /* for big screen device, not too long */
+        height: $timeline-line-size;
+        background-color: $timeline-blue;
+        position: relative;
+        top: -.04rem;
+        left: 28%;
+    }
+    .timeline-inner {
+        position: relative;
+        top: -.05rem;
+
+        .timeline-item.dark {
+            background-color: $timeline-blue!important;
+            color: $timeline-white!important;
+            
+            .time {
+                color: $timeline-white!important;
+            }
+            .line {
+                background-color: $timeline-white!important;
+            }
+            .homework-title {
+                color: $timeline-white!important;
+            }
+            .evaluation-text {
+                background-color: $timeline-white!important;
+                color: $timeline-blue!important;
+            }
+            .evaluation-text:before {
+                border-color: transparent $timeline-white transparent transparent!important;
+            }
+        }
+        .timeline-item:last-child { /* default  .timeline-item-last-light */
+            padding-bottom: .3rem;
+            border-bottom: $timeline-line-size solid $timeline-blue;
+        }
+        .timeline-item-last-dark {
+            padding-bottom: .3rem!important;
+            border-bottom: $timeline-line-size solid $timeline-white!important;
+        }
+        .timeline-item {
+            text-align: left;
+            position: relative;
+            padding: .05rem;
+            padding-bottom: .2rem;
+
+            .line {
+                width: $timeline-line-size;
+                height: 100%; /* must has value but whatever value is */
+                background-color: $timeline-blue;
+                position: absolute;
+                left: 28%;
+                top: 0;
+            }
+            .time {
+                width: $evaluation-left-width;
+                position: relative;
+                top: .01rem;
+                color: $timeline-blue;
+
+                .year {
+                    font-size: .12rem;
+                }
+                .date {
+                    font-size: .2rem;
+                }
+            }
+            .right-info {
+                width: $evaluation-right-width;
+                margin-left: 9%;
+                img.avatar {
+                    width: .32rem;
+                    height: .32rem;
+                    position: absolute;
+                    left: 27%;
+                    margin-left: -.12rem; /* new way for mobile device */
+                    top: .48rem;
+                    z-index: $zIndex2;
+                    border-radius: 50%;
+                }
+                @include ipad-screen(landscape) {
+                    img.avatar {
+                        margin-left: -.04rem!important;
+                    }
+                }
+
+                .homework-title {
+                    width: $evaluation-right-width;
+                    position: absolute;
+                    top: .15rem;
+                    font-size: .12rem;
+                    color: #676973;
+                    font-family: "yo-font";
+                }
+                .evaluation-text {
+                    font-size: .12rem;
+                    line-height: 1.7;
+                    padding: .06rem;
+                    border: 1px solid $timeline-blue;
+                    border-radius: .03rem;
+                    position: relative;
+                    background-color: $timeline-blue;
+                    color: $timeline-white;
+                    margin-top: .35rem;
+                    word-break: break-all;
+                    text-align: justify;
+                }
+                .evaluation-text:before {
+                    position: absolute;
+                    content: "\00a0";
+                    width: 0px;
+                    height: 0px;
+                    border-width: .08rem .15rem .08rem 0;
+                    border-style: solid;
+                    border-color: transparent $timeline-blue transparent transparent;
+                    top: .15rem;
+                    left: -.12rem;
+                }
+            }
+        }
+    }
+}
+
+/* homework-evaluation end */

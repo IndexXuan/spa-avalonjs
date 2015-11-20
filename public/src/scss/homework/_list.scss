@@ -1,0 +1,144 @@
+// 列表背景色
+$list-bgColor: #ddd;
+// 列表间距
+$item-gap: .1rem;
+// 左侧图标尺寸
+$homework-list-icon-size: .49rem;
+// 右侧作业信息总高度
+$hw-info-height: .70rem;
+// 右侧作业信息文字颜色
+$hw-info-color: #7E7F83;
+// 右侧作业信息行高
+$item_title_height: .45rem;
+
+.homework-list,
+.mistake-list {
+    text-align: left;
+    background-color: $list-bgColor;
+    min-height: $min-viewport-height;
+
+    #slider {
+        margin-bottom: $item-gap;
+    }
+}
+
+.mistake-list {
+
+    .show-more-btn {
+        position: relative;
+        top: -.08rem;
+    }
+
+}
+
+/* list-item start */
+
+.item-wrapper {
+    display: inline-block;
+    padding: 0rem .08rem .08rem;
+    width: 100%;
+
+    @include ipad-screen(landscape) {
+        .item {
+            width: 48.0%!important;
+            margin: 0 .07rem;
+        }
+    }
+
+    .item {
+        width: 100%;
+        background-color: #fff;
+        text-align: left;
+        padding: .10rem .08rem;
+        margin-bottom: $item-gap;
+        border-radius: 3px;
+
+        .list-card {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            .item-img {
+                width: $homework-list-icon-size;
+                margin-left: .02rem;
+                margin-right: .10rem;
+                height: $homework-list-icon-size;
+                border: 1px solid #eee;
+                vertical-align: middle;
+                border: 0;
+                -ms-interpolation-mode: bicubic;
+                position: relative;
+                top: .10rem;
+            }
+            // 右侧作业信息
+            .hw-info {
+                width: 72%;
+                height: $hw-info-height;
+                line-height: 1.7;
+                font-size: .12rem;
+                margin-top: -.02rem;
+                color: $hw-info-color;
+
+                .item-title {
+                    width: 92%;
+                    margin-top: .01rem;
+                    max-height: $item_title_height;
+                    word-break: break-all;
+                    color: #373434;
+                    font-size: .16rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                .time {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 92%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    position: relative;
+                    top: .01rem; // fix
+                }
+                .finish_count {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 49%;
+                    position: relative;
+                    top: .05rem;
+                    max-height: .24rem;
+                    overflow: hidden;
+
+                    .icon {
+                        width: .16rem;
+                        height: .16rem;
+                        display: inline-block;
+                        vertical-align: middle;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        margin-right: .06rem;
+                        margin-top: -0.04rem;
+                    }
+                    .icon-people {
+                        background-image: url(#{$img-dir}/iconfont-smile.png);
+                    }
+                    .icon-score {
+                        background-image: url(#{$img-dir}/iconfont-score.png);
+                    }
+                }
+            }
+            .todo {
+                position: absolute;
+                right: .05rem;
+                top: .22rem;
+                background-image: url(#{$img-dir}/iconfont-jiaru.png);
+                width: .24rem;
+                height: .24rem;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+
+/* list-item end */
+

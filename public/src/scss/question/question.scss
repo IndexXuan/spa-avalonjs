@@ -1,0 +1,27 @@
+/*******************************************************
+    > File Name: question.scss
+    > Author: IndexXuan
+    > Mail: indexxuan@gmail.com
+    > Created Time: 2015年09月24日 星期四 21时24分18秒
+ ******************************************************/
+
+@import "../base/base";
+
+@import "index";
+@import "form";
+@import "result";
+@import "detail";
+
+#header, .yo-header {
+    z-index: $zIndex7 + 1!important;
+}
+
+// yo component, header
+@import "../base/yo-header";
+
+.question-list-wrapper,
+.history-list-wrapper {
+    .noContent {
+        padding: .1rem;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ms-controller="root">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="dns-prefetch" href="http://7rfll3.com1.z0.glb.clouddn.com/">
+    <title> </title>
+    <style>
+    /* loading, pacman start */
+    .loader{position:fixed;width:100%;height:100%;background:#fff;z-index:99999}.loader-wrapper{position:fixed;margin:auto;left:0;top:0;right:0;bottom:0;width:2rem;height:2rem;padding-top:.75rem;padding-left:.5rem}@-webkit-keyframes rotate_pacman_half_up{0%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}50%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}50%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{-webkit-transform:rotate(90deg);transform:rotate(90deg)}50%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(90deg);transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{-webkit-transform:rotate(90deg);transform:rotate(90deg)}50%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(90deg);transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}100%{-webkit-transform:translate(-1rem,-.0625rem);transform:translate(-1rem,-.0625rem)}}@keyframes pacman-balls{75%{opacity:.7}100%{-webkit-transform:translate(-1rem,-.0625rem);transform:translate(-1rem,-.0625rem)}}.pacman{position:relative}.pacman>div:nth-child(2){-webkit-animation:pacman-balls 1s 0s infinite linear;animation:pacman-balls 1s 0s infinite linear}.pacman>div:nth-child(3){-webkit-animation:pacman-balls 1s .33s infinite linear;animation:pacman-balls 1s .33s infinite linear}.pacman>div:nth-child(4){-webkit-animation:pacman-balls 1s .66s infinite linear;animation:pacman-balls 1s .66s infinite linear}.pacman>div:nth-child(5){-webkit-animation:pacman-balls 1s .99s infinite linear;animation:pacman-balls 1s .99s infinite linear}.pacman>div:first-of-type{width:0;height:0;border-right:.25rem solid transparent;border-top:.25rem solid #64c400;border-left:.25rem solid #64c400;border-bottom:.25rem solid #64c400;border-radius:.25rem;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.pacman>div:nth-child(2){width:0;height:0;border-right:.25rem solid transparent;border-top:.25rem solid #64c400;border-left:.25rem solid #64c400;border-bottom:.25rem solid #64c400;border-radius:.25rem;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-.5rem}.pacman>div:nth-child(3),.pacman>div:nth-child(4),.pacman>div:nth-child(5),.pacman>div:nth-child(6){background-color:#64c400;width:.15rem;height:.15rem;border-radius:100%;margin:.02rem;position:absolute;-webkit-transform:translate(0,-.0625rem);-ms-transform:translate(0,-.0625rem);transform:translate(0,-.0625rem);top:.225rem;left:1rem}@-webkit-keyframes cube-transition{25%{-webkit-transform:translateX(.5rem) scale(.5) rotate(-90deg);transform:translateX(.5rem) scale(.5) rotate(-90deg)}50%{-webkit-transform:translate(.5rem,.5rem) rotate(-180deg);transform:translate(.5rem,.5rem) rotate(-180deg)}75%{-webkit-transform:translateY(.5rem) scale(.5) rotate(-270deg);transform:translateY(.5rem) scale(.5) rotate(-270deg)}100%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg)}}@keyframes cube-transition{25%{-webkit-transform:translateX(.5rem) scale(.5) rotate(-90deg);transform:translateX(.5rem) scale(.5) rotate(-90deg)}50%{-webkit-transform:translate(.5rem,.5rem) rotate(-180deg);transform:translate(.5rem,.5rem) rotate(-180deg)}75%{-webkit-transform:translateY(.5rem) scale(.5) rotate(-270deg);transform:translateY(.5rem) scale(.5) rotate(-270deg)}100%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg)}}
+    /* loading, pacman end */
+    </style>
+    <link rel="stylesheet" href="./assets/styles/microsite/microsite.css?v=1.1.1.1" />
+</head>
+
+<body>
+    <div class="loader">
+        <div class="loader-wrapper">
+            <div class="loader-inner pacman">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div ms-view="header" class="header-for-webapp"></div> 
+    <div ms-view class="illy-container"></div>
+    <div ms-view="footer"></div>
+</body>
+<script>
+// set the root(html) dpr attribute to deal with each device, for better user experience.
+// dynamtic calc viewport to make high dpr screen has real 1px line
+(function(){var win=window,doc=win.document,docEl=doc.documentElement,ua=win.navigator.userAgent,metaA=docEl.querySelector('meta[name="viewport"]'),isIOS=ua.match(/iphone/gi),scale,dpr;if(isIOS){dpr=win.devicePixelRatio;dpr=dpr>=3?3:dpr>=2?2:1;scale=(1/dpr).toFixed(2);docEl.setAttribute("data-dpr",dpr);docEl.setAttribute("ios","true");if(!metaA){metaA=doc.createElement("meta")}metaA.setAttribute("name","viewport");metaA.setAttribute("content","initial-scale="+scale+", maximum-scale="+scale+", minimum-scale="+scale+", user-scalable=no");if(!metaA){if(docEl.firstElementChild){docEl.firstElementChild.appendChild(metaA)}else{var div=doc.createElement("div");div.appendChild(metaA);doc.write(div.innerHTML)}}win.dpr=dpr}})();
+
+// set env 
+(function() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        document.querySelector('html').classList.add('weChat-app');
+    } else {
+        document.querySelector('html').classList.add('web-app');
+    }
+}());
+</script>
+<script src="./assets/scripts/lib/avalon/1.45/avalon.js"></script>
+<script>
+    // rendered and bootstrap the page
+    avalon.config({
+        debug: false 
+    });
+
+    require.config({
+        baseUrl: "./assets" // relavite
+    });
+
+    require(['./scripts/app-microsite.js?v=1.1.1.1'], function(app) {
+        // init to build the app
+        app && app.init && app.init();
+    });
+
+    var AvalonLibsBaseUrl = './lib/avalonRouter/1.5-before/'; // for children files amd-define version control
+</script>
+<script src="./assets/scripts/lib/zepto/1.0/zepto.js"></script>
+<script src="./assets/scripts/lib/gmu/gmu.part.js"></script>
+<!--<script src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>-->
+<script src="./assets/scripts/lib/fastclick/fastclick.min.js"></script>
+<script>
+    // fastclick, very powful
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
+    }
+</script>
+<!--<script src="http://localhost:35729/livereload.js"></script>-->
+<!--<script src="http://192.168.1.105:8080/target/target-script-min.js#anonymous"></script>-->
+</html>
+

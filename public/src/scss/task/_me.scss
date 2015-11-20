@@ -1,0 +1,196 @@
+/*******************************************************
+    > File Name: me.scss
+    > Author: IndexXuan
+    > Mail: indexxuan@gmail.com
+    > Created Time: 2015年08月19日 星期三 10时13分24秒
+ ******************************************************/
+
+/* task me start */
+$me-main-color: #fff;
+$me-avatar-height: $avatar-size;
+$me-column-item-height: .8rem;
+$me-column-wrapper-bgColor: #f6f6f6;
+$me-gap-line-color: #dedede;
+$me-column-wrapper-color: #5c5454;
+$me-profile-color: #fff;
+/* task me end */
+
+.me {
+    text-align: left;
+}
+
+.profile-wrapper {
+position: relative;
+    color: $me-profile-color;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(#{$img-dir}/me-colorful-profile-bg.jpg);
+
+    .inner-wrapper {
+        width: 100%;
+        height: $me-avatar-height + .7rem;
+    }
+
+    .update {
+        position: absolute;
+        right: .1rem;
+        top: .2rem;
+
+        .icon-update {
+            width: .16rem;
+            height: .16rem;
+            background: url(#{$img-dir}/iconfont-updateProfile.png) no-repeat center;
+            background-size: 100%;
+            position: relative;
+            top: -.01rem;
+        }
+    }
+}
+
+    .avatar-wrapper {
+        width: 100%;
+        padding: .15rem .20rem;
+        text-align: center;
+
+        img {
+            display: inline-block;
+            width: $me-avatar-height; 
+            height: $me-avatar-height;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+    }
+
+.column-wrapper {
+    position: relative;
+    text-align: center;
+    background-color: $me-column-wrapper-bgColor;
+    margin-bottom: .1rem;
+    padding: .05rem;
+    color: $me-column-wrapper-color;
+
+    .column-item {
+        width: 22%;
+        line-height: 1.8;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .gap-line {
+        display: inline-block;
+        vertical-align: middle;
+        width: .01rem;
+        height: .4rem;
+        background-color: $me-gap-line-color;
+    }
+
+}
+
+.editing-tips {
+    padding: .08rem .01rem .1rem .01rem;
+    text-align: center;
+}
+.update-profile-list {
+    background-color: #fff;
+    padding-right: .10rem; /* for right border-padding, balance with left */
+    padding-bottom: .1rem;
+    padding-left: .15rem;
+    padding-right: 0;
+
+    .avatar-wrapper {
+        position: relative;
+        text-align: left;
+        border-bottom: 1px solid #ddd; /* mark! */
+        background-color: #fff;
+    }
+    .update-avatar-tip {
+        position: absolute;
+        left: 1.2rem;
+        bottom: .48rem;
+    }
+
+    .item { 
+        padding: .15rem .3rem; /* rewrite to make height higher */
+        font-size: .16rem;
+        color: #575151;
+        width: 100%;
+        display: inline-block;
+
+        .icon { /* overwrite it */
+            position: absolute;
+            top: .14rem;
+            left: .1rem;
+        }
+
+        .profile-gender-label {
+            display: inline-block;
+            width: 30%;
+            padding: 0;
+            margin-right: .3rem;
+        }
+
+        .left-item, .right-item{ /* too long name or other info */
+            display: inline-block;
+            vertical-align: middle; /* key! */
+            max-width: 50%; /* key! great set! avoid text-overflow */
+            overflow: hidden;
+            height: .24rem;
+            width: 49%;
+        }
+        .left-item {
+            text-align: left;
+            position: relative;
+            left: .2rem;
+        }
+        .right-item {
+            text-align: right;
+        }
+    }
+
+    .info-gap {
+        width: 15rem;
+        height: .1rem;
+        position: relative;
+        top: -.01rem;
+        left: -5rem;
+        background-color: $g_bgColor;
+    }
+
+    .icon {
+        position: relative;
+        top: -.01rem;
+        margin-right: .15rem;
+        width: .28rem;
+        height: .28rem;
+        background-size: 100%;
+    }
+
+    .icon-name {
+        background-image: url(#{$img-dir}/iconfont-name.png);
+    }
+    .icon-gender {
+        background-image: url(#{$img-dir}/iconfont-gender.png);
+    }
+    .icon-parent {
+        background-image: url(#{$img-dir}/iconfont-parent.png);
+    }
+    .icon-phone {
+        background-image: url(#{$img-dir}/iconfont-phone.png);
+    }
+    .icon-school {
+        background-image: url(#{$img-dir}/iconfont-school.png);
+    }
+    .icon-grade {
+        background-image: url(#{$img-dir}/iconfont-grade.png);
+    }
+
+    .editing-btn-wrapper {
+        text-align: center;
+        margin: .2rem;
+    }
+
+}
+
+// yo component, checkbox
+@import "../base/_yo-checked";
+

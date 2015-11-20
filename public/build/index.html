@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+    </head>
+
+    <body>
+
+    </body>
+
+    <script>
+
+        var apiBaseUrl = 'http://api.hizuoye.com/api/v1/';
+        var url = window.location.href;
+        var re = /([?&])(code|next)=([^?&]+)/g;
+        var query = {}, matches;
+        function createXHR(method, url) {
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr) {
+                // Check if the XMLHttpRequest object has a "withCredentials" property.
+                // "withCredentials" only exists on XMLHTTPRequest2 objects.
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined") {
+                // Otherwise, check if XDomainRequest.
+                // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                // Otherwise, CORS is not supported by the browser.
+                xhr = null;
+            }
+            return xhr;
+        }
+        while (matches = re.exec(url)) {
+            query[matches[2]] = matches[3];
+        }
+        var next = query.next;
+        var code = query.code;
+        var nextMap = {
+            microsite: './microsite.html',
+            homework: './homework.html',
+            evaluation: './homework.html#!/evaluation',
+            mistake: './homework.html#!/mistake/list',
+            question: './question.html',
+            me: './task.html#!/me',
+            task: './task.html',
+            mall: './task.html#!/mall',
+            rank: './task.html#!/rank',
+            unbind: './unbind.html'
+        };
+        
+        var nextUrl = nextMap[next];
+
+        var getItem = function(item) {
+            return localStorage.getItem(item);
+        }
+        var illyToken = getItem('illy-token');
+        var illyTokenMicrosite = getItem('illy-token-microsite');
+        // enough auth, go anywhere
+        if (typeof illyToken  === 'string') { // enough auth, go
+            if (next !== 'unbind') { // cannot local, must http reAuth
+                location.replace(nextUrl); // pure url
+            } 
+        }
+        // microsite only auth
+        if (next === 'microsite' && typeof illyTokenMicrosite  === 'string') {
+            location.replace(nextUrl); // pure url
+        }
+        // local
+        if (code) {
+            if (next === 'microsite') {
+                var xhr = createXHR("GET", apiBaseUrl + 'public/auth?code=' + code + "&url=" + btoa(url) + "&authType=visitor");
+            } else {
+                var xhr = createXHR("GET", apiBaseUrl + 'public/auth?code=' + code + "&url=" + btoa(url));
+            }
+            if (!xhr) {
+                alert('CORS not supported');
+            }
+            // Response handlers.
+            xhr.onload = function () {
+                var status = xhr.status;
+                if (status === 200) { // binded user and qo next...
+                    // location.href = next + '.html?token=' + xhr.responseText;
+                    if ( localStorage && localStorage.getItem ) {
+                        if (next === 'microsite') {
+                            localStorage.setItem('illy-token-microsite', xhr.responseText);
+                        } else {
+                            localStorage.setItem('illy-token', xhr.responseText);
+                        }
+                        location.replace(nextUrl); // pure url, included unbind
+                    } else {
+                        alert('不支持本地存储，token获取不到');
+                        console.error('localStorage not support, no token');
+                    }
+                } else if (status === 401) { // unbinded user, remove local token and go login...
+                    var openid = xhr.responseText;
+                    localStorage.removeItem('illy-token');
+                    localStorage.removeItem('illy-token-microsite'); // the only chance to remove illy-token-microsite except unbind
+                    location.replace('login.html?openid=' + openid + '&next=' + nextUrl);
+                } else {
+                    // alert("Error Sorry! Error: " + xhr.responseText + "status is " + status + ", url = " + url);
+                    alert("对不起，系统错误，请稍后重试!")
+                }
+            }
+            xhr.onerror = function () {
+                alert('Woops, there was an error making the request.');
+            };
+            xhr.send(null);
+        }
+    </script>
+</html>
+

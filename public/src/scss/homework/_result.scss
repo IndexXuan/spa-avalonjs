@@ -1,0 +1,65 @@
+/* homework-result start */
+.result {
+    margin-top: 0;
+    padding-top: .5rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: url(#{$img-dir}/result-bg.png);
+    min-height: 6rem;
+    .result-silk-bg {
+        width: 100%;
+        height: $silk-height;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-image: url(#{$img-dir}/silk-yellow-green.png);
+        line-height: .38rem;
+        color: #fff;
+        font-size: .18rem;
+        position: relative;
+        top: .2rem;
+    }
+    .yo-list {
+        padding-top: .2rem;
+        background-color: #fff;
+    }
+    .item {
+        padding: .15rem 0 .15rem .44rem;
+        font-size: .16rem;
+        display: block;
+        /* rewrite display: flex */
+    }
+    .icon {
+        width: .24rem;
+        height: .24rem;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+    .icon-right {
+        background-image: url(#{$img-dir}/result-right.png);
+    }
+    .icon-wrong {
+        background-image: url(#{$img-dir}/result-wrong.png);
+    }
+    .icon-score {
+        background-image: url(#{$img-dir}/result-score.png);
+    }
+    .icon-totalScore {
+        background-image: url(#{$img-dir}/result-totalScore.png);
+    }
+    .area {
+        width: 40%;
+    }
+    .yo-btn {
+        margin-top: .15rem;
+    }
+    .go-shop {
+        color: #fff;
+        border: none;
+    }
+    .go-index {}
+}
+
+/* homework-result end */

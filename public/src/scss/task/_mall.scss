@@ -1,0 +1,137 @@
+$mall-rules-height: 1.5rem;
+
+$mall-content-width: 94%;
+$mall-item-img-height: 1.2rem;
+
+.mall {
+    background-color: #ea68a2;
+    padding-bottom: .3rem;
+}
+
+
+.mall-top-bg {
+    background: url(#{$img-dir}/mall-top.png) no-repeat center top;
+    background-size: 100%;
+    height: 2.15rem;
+}
+
+.mall-wrapper {
+    text-align: left;
+    width: $mall-content-width;
+    margin: $silk-height auto;
+    background-color: #f8d95d;
+    position: relative;
+    padding-top: $silk-height - .1rem;
+    padding-bottom: $silk-height / 2;
+    padding-left: .06rem;
+    padding-right: .06rem;
+    max-width: $max-content-width;
+    margin: 0 auto;
+
+    .mall-wrapper-silk {
+        background-image: url(#{$img-dir}/silk-red.png);
+        top: -.1rem; 
+    }
+
+    .mall-item {
+        display: inline-block;
+        width: 45%; /* mark! */
+        margin-top: .10rem;
+        margin-left: .10rem;
+        background: #fff;
+        padding: .03rem 0;
+        padding-top: 0;
+        text-align: left;
+        border-radius: .03rem;
+        color: $light-grey;
+
+        .img-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .title {
+            display: inline-block;
+            width: 100%;
+            padding: .03rem .08rem .03rem;
+            line-height: 1.3;
+            font-size: .14rem;
+            color: $dark-grey;
+        }
+
+        .price {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: .7rem;
+            max-width: .7rem;
+            text-align: center;
+            font-size: .12rem;
+            line-height: .16rem;
+            padding: .03rem;
+            background: rgba(249, 47, 47, 0.7);
+            color: #fff;
+        }
+
+        /*.icon {*/
+            /*width: .18rem;*/
+            /*height: .18rem;*/
+            /*position: relative;*/
+            /*top: -.01rem;*/
+        /*}*/
+
+        .exchangeTimes {
+            display: inline-block;
+            width: 48%;
+            text-align: left;
+            padding-left: .1rem;
+            font-size: .12rem;
+            vertical-align: top;
+        }
+
+        .stock {
+            display: inline-block;
+            width: 48%;
+            text-align: right;
+            padding-right: .1rem;
+            font-size: .12rem;
+            vertical-align: top;
+        }
+
+    } /* mall item end */
+
+} /* mall-wrapper end */
+
+.mall-rules {
+    width: $mall-content-width;
+    margin: 0 auto;
+    background-color: #f77d65;
+    min-height: $mall-rules-height;
+    position: relative;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    margin-top: .2rem;
+
+    .mall-rules-silk {
+        background-image: url(#{$img-dir}/silk-blue.png);
+    }
+
+    .rules-text {
+        width: 100%;
+        min-height: $mall-rules-height - $silk-height;
+        color: #fff;
+        font-size: .14rem;
+        white-space: normal;
+        word-break: break-all;
+        padding: .1rem;
+        padding-top: .35rem;
+        line-height: 1.9;
+        text-align: left;
+    }
+}
+

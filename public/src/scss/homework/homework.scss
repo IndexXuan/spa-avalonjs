@@ -1,0 +1,75 @@
+/*******************************************************
+> File Name: homework.scss 
+> Author: IndexXuan
+> Mail: indexxuan@gmail.com
+> Created Time: 2015年07月13日 星期一 18时01分34秒
+ ******************************************************/
+
+@import "../base/base";
+/*@import "../base/yo-header";*/
+@import "../base/yo-checked";
+
+/* global start */
+
+.app {
+    min-height: $min-viewport-height;
+}
+
+.yo-header {
+    background-color: $main-green;
+}
+
+/* global end */
+
+// gmu component, slider
+$slider-height: 1.6rem;
+@import "../base/gmu-slider";
+#slider {
+    @include make-slider-container($slider-height);
+
+    .ui-slider-item > p {
+        display: none;
+    }
+}
+
+// list(homework-list & mistake-list)
+@import "list";
+
+// question 
+@import "question";
+
+// info 
+@import "info.scss";
+
+// result 
+@import "result";
+
+// evaluation
+@import "evaluation";
+
+
+// patch area
+
+/**
+ * iPhone 4/4s 
+ */
+@include iphone4-screen {
+
+    .illy-img-list img {
+        height: 1rem!important;
+    }
+    .question-text {
+        font-size: .14rem!important;
+    }
+    .bottom-checkAnswer-btn {
+        height: .38rem!important;
+        line-height: .38rem!important;
+        bottom: .08rem!important;
+    }
+    .question .record-tips,
+    .question .playRecord {
+        top: 51%!important;
+    }
+    
+}
+

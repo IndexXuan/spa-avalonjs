@@ -1,0 +1,63 @@
+/**
+ *  for wxShareMask & others 
+ *  created on 201509031750
+ */
+
+/* global-animation start 弹入-从右 */
+.a-bounceoutB,
+.a-bounceinB
+{-webkit-animation:.4s ease-in forwards;animation:.4s ease-in forwards}
+
+/* question list 滑动复位动画 */
+.a-bounceinR {
+    -webkit-animation-name: bounceinR;
+    -webkit-animation: .1s ease-in forwards;
+    animation: .1s ease-in forward;
+}
+
+@keyframes bounceinR{
+0%{opacity:1;-webkit-transform:translateX(-40px)}
+60%{opacity:1;-webkit-transform:translateX(0px)}
+80%{-webkit-transform:translateX(0px)}
+100%{-webkit-transform:translateX(0px)}
+}
+@-webkit-keyframes bounceinR{
+0%{opacity:1;-webkit-transform:translateX(-40px)}
+60%{opacity:1;-webkit-transform:translateX(0px)}
+80%{-webkit-transform:translateX(0px)}
+100%{-webkit-transform:translateX(0px)}
+}
+/* global-animation end   弹入-从右 */
+
+/* 弹入-从下 */
+.a-bounceinB {-webkit-animation-name:bounceinB;-moz-animation-name:bounceinB;-ms-animation-name:bounceinB;animation-name:bounceinB;}
+
+/* 弹入-从下 */
+@-webkit-keyframes bounceinB {
+    0% {opacity:0;-webkit-transform:translateY(100px);}
+    60% {opacity:1;-webkit-transform:translateY(-30px);}
+    80% {-webkit-transform:translateY(10px);}
+    100% {-webkit-transform:translateY(0);}
+}
+@keyframes bounceinB {
+    0% {opacity:0;transform:translateY(100px);}
+    60% {opacity:1;transform:translateY(-30px);}
+    80% {transform:translateY(10px);}
+    100% {transform:translateY(0);}
+}
+
+/* 弹出-向下 */
+.a-bounceoutB {-webkit-animation-name:bounceoutB;-moz-animation-name:bounceoutB;-ms-animation-name:bounceoutB;animation-name:bounceoutB;}
+
+/* 弹出-向下 */
+@-webkit-keyframes bounceoutB {
+    0% {-webkit-transform:translateY(0);}
+    20% {opacity:1;-webkit-transform:translateY(-20px);}
+    100% {opacity:0;-webkit-transform:translateY(100px);}
+}
+@keyframes bounceoutB {
+    0% {transform:translateY(0);}
+    20% {opacity:1;transform:translateY(-20px);}
+    100% {opacity:0;transform:translateY(100px);}
+}
+

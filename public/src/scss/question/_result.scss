@@ -1,0 +1,29 @@
+@import "list";
+@import "history";
+
+$q-navigator-size: .34rem;
+.navigator-ul {
+    height: $q-navigator-size;
+    line-height: $q-navigator-size;
+    z-index: $zIndex7 + 1;
+    position: relative; /* to make z-index prop effect */
+    background-color: #fff;
+    margin-bottom: .10rem;
+
+    li {
+        width: 50%;
+        border-bottom: 2px solid #fff;
+
+        &.current-active {
+            border-bottom: 2px solid $main-blue;
+        }
+    }
+
+    .list-li {
+        float: left;
+    }
+
+    .history-li {
+        float: right;
+    }
+}

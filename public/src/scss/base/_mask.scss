@@ -1,0 +1,17 @@
+$g-mask-bgColor: rgba(0, 0, 0, .4);
+
+.ui-mask {
+    z-index: $zIndex6;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $g-mask-bgColor;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}

@@ -1,0 +1,80 @@
+/* question index start */
+
+$camera-ask-size: 2rem;
+$camera-img-size: 1rem;
+
+.index {
+    text-align: center;
+    background-color: $main-blue;
+    min-height: 7rem;
+
+    .ask-record {
+        font-size: .12rem;
+        color: #fff;
+        padding: .03rem .08rem;
+        border-radius: .1rem;
+        position: fixed;
+        top: .15rem;
+        right: .15rem;
+        border: 1px solid #ccc;
+        letter-spacing: .03rem;
+    }
+
+    .camera-ask {
+        width: $camera-ask-size;
+        height: $camera-ask-size;
+        border-radius: 50%;
+        background-color: #fff;
+        @include display-center;
+
+        .landscape-tips {
+            font-size: .12rem;
+            color: #fff;
+            position: absolute;
+            left: 0;
+            top: -.3rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .camera-img {
+            display: block;
+            width: $camera-img-size;
+            height: $camera-img-size;
+            position: absolute;
+            left: 50%;
+            top: 48%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background: url(#{$img-dir}/iconfont-camera.png) no-repeat center;
+            background-size: 100%;
+        }
+
+        .camera-tip-text {
+            font-size: .18rem;
+            color: $main-blue;
+            position: absolute;
+            left: 50%;
+            bottom: .2rem;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+    }
+
+    .text-ask {
+        font-size: .16rem;
+        color: #fff;
+        position: fixed;
+        left: 0;
+        bottom: .7rem;
+        text-align: center;
+        width: 100%;
+
+        .text-img {
+
+        }
+    }
+
+}
+
+/* question index end */

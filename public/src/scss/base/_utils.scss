@@ -1,0 +1,183 @@
+/* utils start */
+
+// silk for large device
+@media all and (min-device-width: 321px) and (max-device-width: 2049px) {
+    .silk-container {
+        line-height: .38rem!important;
+    }
+}
+
+// empty content tip
+
+.global-noContent-tip-light {
+    width: 90%;
+    padding: .3rem;
+    margin: 0 auto;
+    margin-top: .5rem;
+    font-size: .16rem;
+    color: #fff;
+    text-align: left;
+    line-height: 2;
+    text-indent: 2em;
+    border: 2px solid $main-green;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.global-noContent-tip-dark {
+    width: 90%;
+    padding: .3rem;
+    margin: 0 auto;
+    margin-top: .5rem;
+    font-size: .16rem;
+    color: $dark-grey;
+    text-align: left;
+    line-height: 2;
+    text-indent: 2em;
+    border: 2px solid $main-green;
+    border-radius: 10px;
+    background-color: white;
+}
+
+// inline block area
+.area {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tac {
+    text-align: center;
+}
+
+.tal {
+    text-align: left;
+}
+
+.tar {
+    text-align: right;
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+
+// 单行文字溢出省略号显示
+.text-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+// Fixed helper
+.fixed-top {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    z-index: 99999;
+}
+
+.fixed-bottom {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    margin-bottom: 1px;
+}
+
+
+ul,
+.unstyled {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hide {
+    display: none!important;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.show {
+    display: block!important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.text-hide,
+.hide-text {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+
+// 块状元素水平居中
+
+.block-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// global common footer start
+
+.common-bottom-footer {
+    font-size: .14rem;
+    margin: 0;
+    width: 100%;
+    height: .44rem;
+    line-height: .44rem;
+    bottom: 0;
+    left: 0;
+    background-color: $wx-bar-bgColor;
+    opacity: .9;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+// common show more btn
+
+.show-more-btn {
+    display: inline-block;
+    width: 100%;
+    height: .44rem;
+    line-height: .44rem;
+    text-align: center;
+}
+
+// img tag as a background, make it full-screen
+.img-bg {
+    width: 100%;
+}
+
+
+/* common silk style */
+.silk-common {
+    width: 100%;
+    height: $silk-height;
+    line-height: .32rem;
+    background-repeat: no-repeat;
+    background-size: 98%;
+    background-position: center top;
+    position: absolute;
+    left: 0;
+    top: -($silk-height / 2);
+    text-align: center;
+    color: #fff;
+    font-size: .18rem;
+    z-index: $zIndex3;
+}
+
+/* utils end */
+

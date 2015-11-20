@@ -1,0 +1,119 @@
+/* navigator start */
+.fixed-navigator { /* async added, wrapper */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zIndex7 + 1; /* special ... */
+}
+.navBarMask { /* 不遮住首页按钮 */
+    width: 100%;
+    height: $ms-navigator-height;
+    position: fixed;
+    left: $navigator-home-width;
+    top: 0;
+    background-color: #000;
+    opacity: .1;
+    z-index: $zIndex7 + 2;
+}
+.left-fixed {
+    display: -webkit-box;
+    min-width: 100%; /* mark! */
+}
+.left-fixed>div {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+.left-fixed>div.left {
+    width: $navigator-home-width;
+    /* key! for mobile */
+    z-index: $zIndex4; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-box-flex: 0;
+    line-height: $ms-navigator-height;
+    background-color: $navigator-color;
+    color: $navigator-text-color;
+}
+.left-fixed>div.left a {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+.left-fixed>div.left a:hover {
+    color: #999999; /* fix text disappear */
+}
+.ui-scroller {
+    float: left;
+}
+
+.ui-navigator {
+    background: $navigator-color;
+    height: $ms-navigator-height;
+    line-height: $ms-navigator-height;
+    margin-left: $navigator-home-width;
+    overflow: hidden; /* mark! */
+}
+.ui-navigator-list {
+    width: 100%;
+    display: -webkit-box;
+}
+.ui-navigator-list li {
+    line-height: .34rem;
+    font-size: .14rem;
+    text-align: center;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+.ui-navigator-list li a {
+    text-decoration: none;
+    color: $navigator-text-color;
+    display: block;
+    width: 100%;
+    -webkit-box-sizing:border-box;
+    padding: 0 .10rem;
+}
+.ui-navigator-list li.ui-state-hover,
+.ui-navigator-list li.ui-state-active {
+    background: $navigator-current-bgColor;
+
+    a {
+        color: $navigator-current-text-color;
+    }
+}
+
+.ui-scroller {
+    padding: 0;
+    margin: 0;
+    display: inline-block;/*重要，靠他让宽度由子节点撑开*/
+}
+.ui-scroller .ui-navigator-list {
+    display: table;
+    table-layout: fixed;/*宽度可控*/
+    white-space: nowrap;/*内容不换行*/
+    width: auto;
+}
+.ui-scroller .ui-navigator-list:after {
+    content: '';
+    clear: both;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.ui-scroller .ui-navigator-list li {
+    display: inline-block;
+}
+
+.ui-navigator-list,
+.ui-navigator-list li {
+    list-style: none;
+}
+.ui-navigator-list li {
+    display: inline-block;
+    white-space: nowrap;/*内容不换行*/
+}
+/* navigator end */
+

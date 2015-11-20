@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+        <style>
+            input,
+            textarea,
+            button,
+            select,
+            div,
+            img,
+            a {
+                outline: 0 none; /* mark! key! remove outline */
+                -webkit-tap-highlight-color: transparent;
+                /* remove touch outline */
+            }
+            .center {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+            .comfirm-btn {
+                width: 60%;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                background-color: #64c400;
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+                border-radius: 3px;
+            }
+            .tip {
+                color: #F54F4F;
+                margin-top: 14px;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="comfirm-btn center" onclick="unbind()">
+            确认解绑
+            <p class="tip">账户无价，请谨慎操作！</p>
+        </div>
+    </body>
+
+    <script>
+    function unbind() {
+    
+        var apiBaseUrl = 'http://api.hizuoye.com/api/v1/';
+        var token = localStorage.getItem('illy-token');
+        var url = window.location.href;
+        function createXHR(method, url) {
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr) {
+                // Check if the XMLHttpRequest object has a "withCredentials" property.
+                // "withCredentials" only exists on XMLHTTPRequest2 objects.
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined") {
+                // Otherwise, check if XDomainRequest.
+                // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                // Otherwise, CORS is not supported by the browser.
+                xhr = null;
+            }
+            return xhr;
+        }
+        var xhr = createXHR("POST", apiBaseUrl + "unbind");
+        if (!xhr) {
+            alert('CORS not supported');
+        }
+        // Response handlers.
+        xhr.onload = function () {
+            var status = xhr.status;
+            if (status === 200) { // binded user and qo next...
+                var openid = xhr.responseText;
+                localStorage.removeItem('illy-token');
+                localStorage.removeItem('illy-token-microsite'); // also need clear
+                location.replace('./login.html?openid=' + openid);
+            } else if ( status === 401) { // no way to get here now, just write here
+                alert('账户注销失败!');
+                localStorage.removeItem('illy-token');
+                localStorage.removeItem('illy-token-microsite'); // also need clear
+            } else {
+                alert("Error Sorry! Error: " + xhr.responseText + "status is " + status);
+            }
+        }
+        xhr.onerror = function () {
+            alert('Woops, there was an error making the request.');
+        };
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        xhr.send(null);
+    }
+    </script>
+</html>
+

@@ -1,0 +1,18 @@
+/* yo-font-face start */
+
+@font-face {
+    font-family: yofont;
+    src: url(#{$font-face-src}/yofont.woff) format("woff"),
+    url(#{$font-face-src}/yofont.ttf) format("truetype");
+}
+
+.yo-ico {
+    font-family: yofont !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+
+/* yo-font-face end */

@@ -1,0 +1,32 @@
+@mixin display-center {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin ipad-screen($orientation){
+    @media only screen
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : $orientation)
+    {
+        @content;
+    }
+}
+
+@mixin iphone4-screen() {
+    @media only screen and (min-device-width: 319px) and (max-device-height: 481px) {
+        @content;
+    }
+}
+
+@mixin make-slider-container($slider-height, $marginTop: 0) {
+    font-size: .14rem;
+    visibility: hidden;
+    height: $slider-height;
+    margin-top: $marginTop;
+}
+
