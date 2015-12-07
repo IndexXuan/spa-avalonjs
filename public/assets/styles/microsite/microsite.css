@@ -1877,7 +1877,8 @@ ul,
   /* 继承到所有子元素 */
 }
 .detail .content img {
-  width: 100%;
+  width: 100% !important;
+  /* must important to avoid override */
   margin-top: .1rem;
   margin-bottom: .1rem;
 }
@@ -1908,7 +1909,8 @@ ul,
 .detail .content iframe {
   display: block;
   width: 100%;
-  margin: 0 auto;
+  margin: .1rem auto;
+  /* add gap 201512071555 */
 }
 .detail .task-helper-btn {
   width: 60%;
