@@ -1,7 +1,7 @@
 {
   "name": "illy-front",
   "version": "1.0.0",
-  "description": "spa-site-avalonjs",
+  "description": "build spa with avalonjs & mmRouter",
   "main": "gruntfile.js",
   "author": "IndexXuan",
   "license": "MIT",

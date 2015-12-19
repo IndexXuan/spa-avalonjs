@@ -31,7 +31,7 @@
         currentIsVisited: false, // useful for most child view
         currentDataDone: false, // 由$http模块拦截器唯一改变
         title: "", // 每一页action bar的标题   
-        footerInfo: 'kuando Inc',
+        footerInfo: 'IndexXuan Inc',
         back: function() {
             history.go(-1);
         }

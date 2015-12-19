@@ -17,7 +17,7 @@ define(["http://res.wx.qq.com/open/js/jweixin-1.0.0.js", AvalonLibsBaseUrl + "mm
     var global_controllerBaseUrl = 'scripts/controller/';
 
     // $http log 开关配置, 依据运行时编译目标的模式, 强调试时打开注释即可
-    // $http.debug = false;
+    // $http.debug = true;
     $http.debug = false;
     
     // override: 重写log方法, 使用本项目提供的醒目输出
@@ -315,7 +315,7 @@ define(["http://res.wx.qq.com/open/js/jweixin-1.0.0.js", AvalonLibsBaseUrl + "mm
         currentIsVisited: false, // useful for most child view
         currentDataDone: false, // 由$http模块拦截器唯一改变
         title: "", // 每一页action bar的标题   
-        footerInfo: 'kuando Inc',
+        footerInfo: 'IndexXuan Inc',
         back: function() {
             history.go(-1);
         }

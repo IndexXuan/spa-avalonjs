@@ -30,7 +30,7 @@
         currentIsVisited: false, // boolean flag
         currentDataDone: false, // 由$http模块函数唯一改变
         title: '', // for title element or actionBar use
-        footerInfo: '', // first in get the info, rendered in page footer
+        footerInfo: 'IndexXuan. Inc.', // first in get the info, rendered in page footer
         back: function() {
             history.go(-1);
         }
